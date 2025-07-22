@@ -401,29 +401,16 @@
 
 
 
-<div class="container-fluid">
-
-  <h5 class="mb-3 text-secondary "> Vessel Load</h5>
-
-</div>
 
 
 
 
 <div class="card">
 
-    <div class="container-fluid my-4">
+    <div class="container-fluid ">
 
-  <div class="card p-4 shadow-sm">
-    <ul class="nav nav-tabs" id="portTabs" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="load-tab" data-bs-toggle="tab" data-bs-target="#loadPort" type="button" role="tab">Load Port Operations</button>
-      </li>
-      <!-- <li class="nav-item" role="presentation">
-        <button class="nav-link" id="discharge-tab" data-bs-toggle="tab" data-bs-target="#dischargePort" type="button" role="tab">Discharge Port Operations</button>
-      </li> -->
-    </ul>
-
+  <div class="card shadow-sm">
+ 
     <div class="tab-content pt-4" id="portTabsContent">
       <!-- Load Port Tab -->
       <div class="tab-pane fade show active" id="loadPort" role="tabpanel">
@@ -460,11 +447,10 @@
           </div>
         </form>
 
-        <div class="mt-3 text-end">
-          <button class="btn btn-success me-2">Save</button>
-          <button class="btn btn-secondary">Clear</button>
-        </div>
-
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-2" type="button">Save</button>
+  <button class="btn btn-warning" type="button">Cancel</button>
+</div>
         <!-- Sub Tabs -->
         <ul class="nav nav-tabs mt-4" id="loadSubTabs" role="tablist">
           <li class="nav-item">

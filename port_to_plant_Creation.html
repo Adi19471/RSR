@@ -415,7 +415,7 @@
 
         <!-- Rake Type -->
         <div class="col-md-4 mb-3">
-          <label for="rakeType" class="form-label">Rake Type</label>
+          <label for="rakeType" class="form-label">Wagon Type</label>
           <select class="form-control" id="rakeType">
             <option selected>Loaded</option>
             <option>Empty</option>
@@ -445,11 +445,15 @@
       </div>
 
       <!-- Submit Button -->
-      <div class="text-end">
-        <button type="submit" class=" btn btn-success">Save</button>
-        <button type="submit" class=" btn btn-success">Cancel</button>
-      </div>
+      
     </form>
+    
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-5 m-2" type="button">Save</button>
+  <button class="btn btn-warning m-2"" type="button">Cancel</button>
+</div>
+
+
   </div>
 
 
@@ -475,11 +479,11 @@
           Handling
         </button>
       </li>
-      <li class="nav-item" role="presentation">
+      <!-- <li class="nav-item" role="presentation">
         <button class="nav-link" id="weighment-tab" data-bs-toggle="tab" data-bs-target="#weighmentDetails" type="button" role="tab" aria-controls="weighmentDetails" aria-selected="false">
           Weighment Details
         </button>
-      </li>
+      </li> -->
     </ul>
     <div class="tab-content p-3 border border-top-0" id="rakeTabContent">
       <!-- RAIL DETAILS TAB -->
@@ -544,24 +548,144 @@
       <div class="tab-pane fade" id="handling" role="tabpanel" aria-labelledby="handling-tab">
         <form>
           <div class="row g-3">
-            <div class="col-md-3">
-              <label class="form-label">Type of Operations:</label>
-              <select class="form-control">
-                <option>MFG</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <label class="form-label">Operations Clearance Time:</label>
-              <input type="datetime-local" class="form-control">
-            </div>
-            <div class="col-md-3">
-              <label class="form-label">Rake Drawn Out Date:</label>
-              <input type="datetime-local" class="form-control">
-            </div>
-            <div class="col-md-3">
-              <label class="form-label">Demurrage Hrs:</label>
-              <input type="text" class="form-control" value="0.0" readonly>
-            </div>
+            
+
+
+<div class="col-md-3">
+        <label class="form-label">Type of Operations: <span class="text-danger">*</span></label>
+        <select class="form-control">
+          <option>MECHANICAL</option>
+          <option>MANUAL</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Allowed Hrs:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Placement Time: <span class="text-danger">*</span></label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Inspection Time: <span class="text-danger">*</span></label>
+        <input type="datetime-local" class="form-control">
+      </div>
+
+      <!-- Row 2 -->
+      <div class="col-md-3">
+        <label class="form-label">Operations Clearance Time: <span class="text-danger">*</span></label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Loading Start Time:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Completion Time:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Engine Attached Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+
+      <!-- Row 3 -->
+      <div class="col-md-3">
+        <label class="form-label">Rake Drawn Out Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Demurrage Amount:</label>
+        <input type="text" class="form-control" value="0.0" readonly>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Net Load/Unload Time:</label>
+        <input type="text" class="form-control" value="0.32" readonly>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Actual Placement Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+
+      <!-- Row 4 -->
+      <div class="col-md-3">
+        <label class="form-label">Demurrage Hrs:</label>
+        <input type="text" class="form-control" value="0.0" readonly>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">ETA:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Demurrage Reason:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Actual Completion Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+
+      <!-- Row 5 -->
+      <div class="col-md-3">
+        <label class="form-label">Inspection Officer:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Load/Unload Complete: <span class="text-danger">*</span></label>
+        <select class="form-control">
+          <option>YES</option>
+          <option>NO</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Total Loaded Qty:</label>
+        <input type="text" class="form-control" value="0.000" readonly>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Weightment In:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+
+      <!-- Row 6 -->
+      <div class="col-md-3">
+        <label class="form-label">Total Freight Charged:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Total Wagons:</label>
+        <input type="text" class="form-control" value="46" readonly>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Chargable Weight :</label>
+        <input type="text" class="form-control" value="46" readonly>
+      </div>
+
+         <div class="col-md-3">
+        <label class="form-label">RR Net Weight :</label>
+        <input type="text" class="form-control" value="46" readonly>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Gross Weight :</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Tare Weight:</label>
+        <input type="text" class="form-control">
+      </div>
+
+
+       <div class="col-md-3">
+        <label class="form-label">CH/ Weight:</label>
+        <input type="text" class="form-control">
+      </div>
+
+
+            
+
+
+            
           </div>
         </form>
       </div>
@@ -570,126 +694,13 @@
 
   </div>
 
-    <div class="tab-pane fade" id="weighmentDetails" role="tabpanel" aria-labelledby="weighment-tab">
-  <div class="table-responsive mt-3">
-    <table class="table table-bordered table-striped align-middle ">
-      <thead class="table-dark table-bordered border-primary">
-        <tr>
-          <th scope="col">Sl No</th>
-          <th scope="col">Wagon #</th>
-          <th scope="col">Wagon Type</th>
-          <th scope="col">Printed Tare</th>
-          <th scope="col">Carrying Capacity</th>
-          <th scope="col">Gross WT Tonne</th>
-          <th scope="col">Tare WT</th>
-          <th scope="col">Net WT</th>
-          <th scope="col">Over WT</th>
-          <th scope="col">Charge WT</th>
-          <th scope="col">Under WT</th>
-          <th scope="col">Speed</th>
-          <th scope="col">Owning Railway</th>
-          <th scope="col">No. of Articles</th>
-          <th scope="col">Commodity Code</th>
-          <th scope="col">Measurement Weight</th>
-          <th scope="col">Actual Weight</th>
-          <th scope="col">Permissible Weight</th>
-          <th scope="col">Total Weight</th>
-          <th scope="col">Over Weight</th>
-          <th scope="col">Punitive Rate</th>
-          <th scope="col">Chargeable Weight</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-   
-<tbody id="wagonTableBody">
-  <tr>
-    <td>1</td>
-    <td>WR123456</td>
-    <td>BOXN</td>
-    <td>21.5</td>
-    <td>70</td>
-    <td>85.0</td>
-    <td>21.5</td>
-    <td>63.5</td>
-    <td>0</td>
-    <td>63.5</td>
-    <td>0</td>
-    <td>60</td>
-    <td>WR</td>
-    <td>10</td>
-    <td>1021</td>
-    <td>63.0</td>
-    <td>63.5</td>
-    <td>70</td>
-    <td>63.5</td>
-    <td>0</td>
-    <td>0</td>
-    <td>63.5</td>
-    <td><button class="btn btn-danger btn-sm">Delete</button></td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>WR123457</td>
-    <td>BOXN</td>
-    <td>22.0</td>
-    <td>68</td>
-    <td>83.0</td>
-    <td>22.0</td>
-    <td>61.0</td>
-    <td>0</td>
-    <td>61.0</td>
-    <td>0</td>
-    <td>55</td>
-    <td>CR</td>
-    <td>8</td>
-    <td>1022</td>
-    <td>60.0</td>
-    <td>61.0</td>
-    <td>68</td>
-    <td>61.0</td>
-    <td>0</td>
-    <td>0</td>
-    <td>61.0</td>
-    <td><button class="btn btn-danger btn-sm">Delete</button></td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>WR123458</td>
-    <td>BCN</td>
-    <td>23.0</td>
-    <td>72</td>
-    <td>86.0</td>
-    <td>23.0</td>
-    <td>63.0</td>
-    <td>0</td>
-    <td>63.0</td>
-    <td>0</td>
-    <td>65</td>
-    <td>ER</td>
-    <td>9</td>
-    <td>1023</td>
-    <td>62.0</td>
-    <td>63.0</td>
-    <td>72</td>
-    <td>63.0</td>
-    <td>0</td>
-    <td>0</td>
-    <td>63.0</td>
-    <td><button class="btn btn-danger btn-sm">Delete</button></td>
-  </tr>
-</tbody>
-
-
-    </table>
-    <button class=" btn btn-success" onclick="addRow()">Add Wagon</button>
-  </div>
-</div>
+ 
 </div>
     </div>
 
-          <div class="card">
-            <h3>Rake Dispatch & Tracking</h3>
-            <div class="filter-section">
+          <div class="container-fluid card  mt-2">
+         
+            <div class="filter-section">   <h3>Rake Dispatch & Tracking</h3>
               <div class="filter-row">
                 <div class="form-group">
                   <label>Filter by Status</label>
@@ -708,72 +719,67 @@
                 </div>
                 <div class="form-group">
                   <label>&nbsp;</label>
-                  <button class="btn">Apply Filters</button>
+                  <button class="btn btn-dark">Apply Filters</button>
                 </div>
               </div>
             </div>
             <div class="table-container ">
-              <table class="table table-bordered border-primary table-hover">
-                <thead>
-                  <tr>
-                    <th>Rake ID</th>
-                    <th>Rake Ref ID</th>
-                    <th>Dispatch Date</th>
-                    <th>FOIS Reference</th>
-                    <th>Current Status</th>
-                    <th>ETA at Port</th>
-                    <th>Edit</th>
-                    <th>Tracking</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>R-2025-001</td>
-                    <td>REF-001</td>
-                    <td>2025-07-16 08:30</td>
-                    <td>FOIS-789456</td>
-                    <td>
-                      <span class="status-badge status-enroute">En Route</span>
-                    </td>
-                    <td>17.6868°N, 83.2185°E</td>
-                    <td>2025-07-16 14:30</td>
-                    <td>
-                      <button class="btn btn-secondary">Track/Edit</button>
-                    </td>
-                    <td><button class="btn btn-secondary">Track</button></td>
-                  </tr>
-                  <tr>
-                    <td>R-2025-002</td>
-                    <td>REF-002</td>
-                    <td>2025-07-16 06:15</td>
-                    <td>FOIS-789457</td>
-                    <td>
-                      <span class="status-badge status-arrived">Arrived</span>
-                    </td>
-                    <td>2025-07-16 12:15</td>
-                    <td>
-                      <button class="btn btn-secondary">Track/Edit</button>
-                    </td>
-                    <td><button class="btn btn-secondary">Track</button></td>
-                  </tr>
-                  <tr>
-                    <td>R-2025-003</td>
-                    <td>REF-003</td>
-                    <td>2025-07-16 10:45</td>
-                    <td>FOIS-789458</td>
-                    <td>
-                      <span class="status-badge status-loading">Loading</span>
-                    </td>
-                    <td>2025-07-16 16:45</td>
-                    <td>
-                      <button class="btn btn-secondary">Track/Edit</button>
-                    </td>
-                    <td><button class="btn btn-secondary">Track</button></td>
-                  </tr>
-                </tbody>
-              </table>
+             <table class="table table-bordered border-primary table-hover">
+  <thead>
+    <tr>
+      <th>Rake ID</th>
+      <th>Rake Ref ID</th>
+      <th>Wagon Type</th>
+      <th>Sidening Name</th>
+      <th>No of Wagon Loaded</th>
+      <th>Destination</th>
+      <th>Current Status</th>
+      <th>Edit</th>
+      <th>Tracking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>R-2025-001</td>
+      <td>REF-001</td>
+      <td>BOXN</td>
+      <td>FOIS-789456</td>
+      <td>58</td>
+      <td>Delhi Yard</td>
+      <td><span class="status-badge status-enroute">En Route</span></td>
+      <td><button class="btn btn-secondary">Edit</button></td>
+      <td><button class="btn btn-secondary">Track</button></td>
+    </tr>
+    <tr>
+      <td>R-2025-002</td>
+      <td>REF-002</td>
+      <td>BCNHL</td>
+      <td>FOIS-789457</td>
+      <td>42</td>
+      <td>Mumbai Port</td>
+      <td><span class="status-badge status-arrived">Arrived</span></td>
+      <td><button class="btn btn-secondary">Edit</button></td>
+      <td><button class="btn btn-secondary">Track</button></td>
+    </tr>
+    <tr>
+      <td>R-2025-003</td>
+      <td>REF-003</td>
+      <td>BTPN</td>
+      <td>FOIS-789458</td>
+      <td>50</td>
+      <td>Kolkata Yard</td>
+      <td><span class="status-badge status-loading">Loading</span></td>
+      <td><button class="btn btn-secondary">Edit</button></td>
+      <td><button class="btn btn-secondary">Track</button></td>
+    </tr>
+  </tbody>
+</table>
+
             </div>
           </div>
+
+
+          
         </div>
 </div>
                 </div>

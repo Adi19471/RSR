@@ -419,7 +419,7 @@
 
         <!-- Rake Type -->
         <div class="col-md-4 mb-3">
-          <label for="rakeType" class="form-label">Rake Type</label>
+          <label for="rakeType" class="form-label"> Type of Wagon</label>
           <select class="form-control" id="rakeType">
             <option selected>Tank</option>
             <option>Box</option>
@@ -450,12 +450,47 @@
           <input type="datetime-local" class="form-control" id="loadDateTime">
         </div>
 
+
+        
+        
+ <div class="col-md-4 mb-3">
+          <label for="rakeType" class="form-label">Source Siding</label>
+          <select class="form-control" id="rakeType">
+            <option selected>Siding A</option>
+            <option selected>Siding B</option>
+            <option selected>Siding C</option>
+            <option selected>Siding D</option>
+          
+            
+          </select>
+        </div>
+
+
+
+         <div class="col-md-4 mb-3">
+          <label for="rakeType" class="form-label">Port Siding</label>
+          <select class="form-control" id="rakeType">
+            <option selected>PPAP</option>
+            <option selected>PPQP</option>
+          
+          
+            
+          </select>
+        </div>
+
+
+      
+
+
+
+
+            
       </div>
 
       <!-- Submit Button -->
       <div class="text-end">
-        <button type="submit" class=" btn btn-success">Save</button>
-        <button type="submit" class=" btn btn-success">Cancel</button>
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-warning">Cancel</button>
       </div>
     </form>
   </div>
@@ -483,11 +518,11 @@
           Handling
         </button>
       </li>
-      <li class="nav-item" role="presentation">
+      <!-- <li class="nav-item" role="presentation">
         <button class="nav-link" id="weighment-tab" data-bs-toggle="tab" data-bs-target="#weighmentDetails" type="button" role="tab" aria-controls="weighmentDetails" aria-selected="false">
           Weighment Details
         </button>
-      </li>
+      </li> -->
     </ul>
     <div class="tab-content p-3 border border-top-0" id="rakeTabContent">
       <!-- RAIL DETAILS TAB -->
@@ -660,6 +695,33 @@
         <label class="form-label">Total Wagons:</label>
         <input type="text" class="form-control" value="46" readonly>
       </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Chargable Weight :</label>
+        <input type="text" class="form-control" value="46" readonly>
+      </div>
+
+         <div class="col-md-3">
+        <label class="form-label">RR Net Weight :</label>
+        <input type="text" class="form-control" value="46" readonly>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Gross Weight :</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Tare Weight:</label>
+        <input type="text" class="form-control">
+      </div>
+
+
+       <div class="col-md-3">
+        <label class="form-label">CH/ Weight:</label>
+        <input type="text" class="form-control">
+      </div>
+
+
     </div>
   </form>
 </div>
@@ -672,7 +734,7 @@
  <!-- Include Bootstrap CSS (if not already) -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<div class="tab-pane fade show active" id="weighmentDetails" role="tabpanel" aria-labelledby="weighment-tab">
+<!-- <div class="tab-pane fade show active" id="weighmentDetails" role="tabpanel" aria-labelledby="weighment-tab">
   <div class="table-responsive mt-3">
     <table class="table table-bordered table-striped table-hover align-middle text-center">
       <thead class="table-dark">
@@ -723,7 +785,7 @@
       <button class="btn btn-success" onclick="addRow()">Add Wagon</button>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- JS: Add/Delete Row -->
 <script>
