@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>R-S-R - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="default.css" rel="stylesheet" />
+
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+  </head>
+  <style>
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .kpi-card {
+      background: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      padding: 1.2rem 1rem;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .kpi-card::before {
+      content: "";
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .kpi-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kpi-value {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .kpi-label {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    .kpi-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kpi-value {
+      color: black;
+    }
+    /* Color variations */
+    .kpi-card.purple::before {
+      background-color: #6f42c1;
+    }
+    .kpi-card.purple .kpi-icon {
+      background-color: #6f42c1;
+    }
+
+    .kpi-card.yellow::before {
+      background-color: #f0ad4e;
+    }
+    .kpi-card.yellow .kpi-icon {
+      background-color: #f0ad4e;
+    }
+
+    .kpi-card.teal::before {
+      background-color: #20c997;
+    }
+    .kpi-card.teal .kpi-icon {
+      background-color: #20c997;
+    }
+
+    .kpi-card.pink::before {
+      background-color: #e83e8c;
+    }
+    .kpi-card.pink .kpi-icon {
+      background-color: #e83e8c;
+    }
+  </style>
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav   sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div class="sidebar-brand-icon rotate-n-15"></div>
+          <div class="sidebar-brand-text mx-3 fa-2x">RSR</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Mine To Port</div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="true"
+            aria-controls="collapseTwo"
+          >
+            <i class="fas fa-fw fa-cog"></i>
+            <span> Mine To Port</span>
+          </a>
+          <div
+            id="collapseTwo"
+            class="collapse"
+            aria-labelledby="headingTwo"
+            data-parent="#accordionSidebar"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header"> </h6>
+              <a class="collapse-item" href="MinetoportDahboard.html"
+                >Dashboard</a
+              >
+              <a class="collapse-item" href="Minetoport_Create.html">Create</a>
+              <a class="collapse-item" href="Mine_to_port_load.html"
+                >Rail Load</a
+              >
+              <a class="collapse-item" href="Mine_to_port_discharge.html"
+                >Rail Disacharge</a
+              >
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Port To Port</div>
+
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsePortToPort"
+            aria-expanded="false"
+            aria-controls="collapsePortToPort"
+          >
+            <i class="fas fa-fw fa-ship"></i>
+            <span>Port To Port</span>
+          </a>
+          <div
+            id="collapsePortToPort"
+            class="collapse"
+            aria-labelledby="headingPortToPort"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Port To Port</h6>
+              <a class="collapse-item" href="port_port_Dashboard.html"
+                >Dashboard</a
+              >
+              <a class="collapse-item" href="port_to_port_load.html"
+                >Vessel Load</a
+              >
+              <a class="collapse-item" href="port_to_port_discharge.html">
+                Vessel Discharge</a
+              >
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">Port To Plant</div>
+
+        <li class="nav-item">
+          <a
+            class="nav-link collapsed"
+            href="#"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsePortToPlant"
+            aria-expanded="false"
+            aria-controls="collapsePortToPlant"
+          >
+            <i class="fas fa-fw fa-industry"></i>
+            <span>Port To Plant</span>
+          </a>
+          <div
+            id="collapsePortToPlant"
+            class="collapse"
+            aria-labelledby="headingPortToPlant"
+          >
+            <div class="bg-white py-2 collapse-inner rounded">
+              <h6 class="collapse-header">Port To Plant</h6>
+              <a class="collapse-item" href="port_to_plant_Dashboard.html"
+                >Dashboard</a
+              >
+              <a class="collapse-item" href="port_to_plant_Creation.html"
+                >Create</a
+              >
+              <a class="collapse-item" href="port_to_plant_load.html"
+                >Rail Load</a
+              >
+              <a class="collapse-item" href="port_to_plant_discharge.html"
+                >Rail Discharge</a
+              >
+                  <a class="collapse-item" href="Conveyor_Operations.html"
+          >Conveyor Operations</a
+        >
+            </div>
+          </div>
+        </li>
+
+    
+        <a class="collapse-item" href="404.html"> Page Not Found</a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+        <!-- Sidebar Message -->
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Search -->
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+              <li class="nav-item dropdown no-arrow d-sm-none">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="searchDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div
+                  class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                  aria-labelledby="searchDropdown"
+                >
+                  <form class="form-inline mr-auto w-100 navbar-search">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        class="form-control bg-light border-0 small"
+                        placeholder="Search for..."
+                        aria-label="Search"
+                        aria-describedby="basic-addon2"
+                      />
+                      <div class="input-group-append">
+                        <button class=" btn btn-success" type="button">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+              <!-- Nav Item - Alerts -->
+
+              <!-- Nav Item - Messages -->
+
+              <div class="topbar-divider d-none d-sm-block"></div>
+
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                    >Infyz</span
+                  >
+                  <img
+                    class="img-profile rounded-circle"
+                    src="img/undraw_profile.svg"
+                  />
+                </a>
+                <!-- Dropdown - User Information -->
+                <div
+                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="userDropdown"
+                >
+                  <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Settings
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Activity Log
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a
+                    class="dropdown-item"
+                    href="#"
+                    data-toggle="modal"
+                    data-target="#logoutModal"
+                  >
+                    <i
+                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
+                    ></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+
+
+<div class="container-fluid">
+
+  <h5 class="mb-3 text-secondary "> Port To Port Discharge</h5>
+
+</div>
+
+
+
+
+<div class="card">
+
+    <div class="container-fluid my-4">
+
+  <div class="card p-4 shadow-sm">
+    <ul class="nav nav-tabs" id="portTabs" role="tablist">
+      <!-- <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="load-tab" data-bs-toggle="tab" data-bs-target="#loadPort" type="button" role="tab">Load Port Operations</button>
+      </li> -->
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="discharge-tab" data-bs-toggle="tab" data-bs-target="#dischargePort" type="button" role="tab">Discharge Port Operations</button>
+      </li> 
+    </ul>
+
+    <div class="tab-content pt-4" id="portTabsContent">
+      <!-- Load Port Tab -->
+      <div class="tab-pane fade show active" id="loadPort" role="tabpanel">
+        <h4>Vessel Loading Plan</h4>
+        <form class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Vessel Name</label>
+            <input type="text" class="form-control" placeholder="Enter vessel name">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Voyage No.</label>
+            <input type="text" class="form-control" placeholder="Enter voyage number">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Total Quantity (MT)</label>
+            <input type="number" class="form-control" placeholder="Enter quantity">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Loading Sequence</label>
+            <input type="text" class="form-control" placeholder="Enter loading sequence">
+          </div>
+
+          <div class="col-md-3">
+            <label class="form-label">Draft Limitations</label>
+            <input type="text" class="form-control" placeholder="Enter draft limitations">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Ship Loader ID</label>
+            <select class="form-control">
+              <option>Loader-01</option>
+              <option>Loader-02</option>
+              <option>Loader-03</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="mt-3 text-end">
+          <button class="btn btn-success me-2">Save</button>
+          <button class="btn btn-secondary">Clear</button>
+        </div>
+
+        <!-- Sub Tabs -->
+        <ul class="nav nav-tabs mt-4" id="loadSubTabs" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#vesselMoments" type="button">Vessel Moments</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#stockpileDetails" type="button">Stockpile Details</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vesselDocs" type="button">Documents</button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-3">
+          <div class="tab-pane fade show active" id="vesselMoments">
+            <table class="table table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th>Berthing Time</th>
+                  <th>Operations Commenced</th>
+                  <th>Operations Completed</th>
+                  <th>Sailing Time</th>
+                  <th>Total Berthing Hrs</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <button class=" btn btn-success" onclick="addVesselMomentsRow()">Add Row</button>
+          </div>
+
+          <div class="tab-pane fade" id="stockpileDetails">
+            <table class="table table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th>Customer</th>
+                  <th>Cargo Stockpile</th>
+                  <th>Bay</th>
+                  <th>Available Quantity</th>
+                  <th>Load Quantity</th>
+                  <th>Remarks</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <button class=" btn btn-success" onclick="addLoadRow()">Add Row</button>
+          </div>
+
+          <div class="tab-pane fade" id="vesselDocs">
+            <div class="mb-3">
+              <label class="form-label">File Upload</label>
+              <input type="file" class="form-control">
+            </div>
+            <div class="text-end">
+              <button class=" btn btn-success me-2">Upload</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discharge Port Tab -->
+      <div class="tab-pane fade" id="dischargePort" role="tabpanel">
+        <h4>Vessel Arrival & Unloading</h4>
+        <form class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Vessel ID</label>
+            <input type="text" class="form-control" placeholder="Enter vessel ID">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Arrival Date & Time</label>
+            <input type="datetime-local" class="form-control">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Hold No.</label>
+            <input type="text" class="form-control" placeholder="Enter hold number">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Discharge Equipment ID</label>
+            <select class="form-select">
+              <option>Unloader-01</option>
+              <option>Unloader-02</option>
+              <option>Unloader-03</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Quantity per Hold / Total (MT)</label>
+            <input type="number" class="form-control" placeholder="Enter quantity">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Unloading Time Window</label>
+            <input type="text" class="form-control" placeholder="e.g., 6 hours">
+          </div>
+        </form>
+
+        <div class="mt-3 text-end">
+          <button class="btn btn-success me-2">Log Arrival</button>
+          <button class="btn btn-secondary">Schedule Unloading</button>
+        </div>
+
+        <!-- Sub Tabs -->
+        <ul class="nav nav-tabs mt-4" id="dischargeSubTabs" role="tablist">
+          <li class="nav-item">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#dischargeVesselMoments" type="button">Vessel Moments</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dischargeStockpileDetails" type="button">Stockpile Details</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dischargeDocs" type="button">Documents</button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-3">
+          <div class="tab-pane fade show active" id="dischargeVesselMoments">
+            <table class="table table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th>Berthing Time</th>
+                  <th>Operations Commenced</th>
+                  <th>Operations Completed</th>
+                  <th>Sailing Time</th>
+                  <th>Total Berthing Hrs</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <button class=" btn btn-success" onclick="addVesselMomentsDichargeRow()">Add Row</button>
+          </div>
+
+          <div class="tab-pane fade" id="dischargeStockpileDetails">
+            <table class="table table-bordered">
+              <thead class="table-light">
+                <tr>
+                  <th>Customer</th>
+                  <th>Cargo Stockpile</th>
+                  <th>Bay</th>
+                  <th>Available Quantity</th>
+                  <th>Load Quantity</th>
+                  <th>Remarks</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <button class=" btn btn-success" onclick="addcargodichargeTableRow()">Add Row</button>
+          </div>
+
+          <div class="tab-pane fade" id="dischargeDocs">
+            <div class="mb-3">
+              <label class="form-label">File Upload</label>
+              <input type="file" class="form-control">
+            </div>
+            <div class="text-end">
+              <button class=" btn btn-success me-2">Upload</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Tracking Card -->
+  <div class="card p-4 shadow-sm mt-4">
+    <h4>Live Tracking</h4>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Vessel Name</th>
+          <th>Voyage No.</th>
+          <th>ETA Discharge</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MV Ocean Star</td>
+          <td>VOY-123</td>
+          <td>2025-07-18 14:30</td>
+        </tr>
+        <tr>
+          <td>MV Coal Express</td>
+          <td>VOY-124</td>
+          <td>2025-07-19 09:15</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-muted mt-2">[Live Vessel Tracking Map - Real-time positions with weather overlay]</div>
+  </div>
+
+ 
+</div>
+
+</div>
+  
+
+</div>
+
+
+        
+
+
+
+          </div>
+        </div>
+</div>
+              
+          
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Infyz Solution  2025</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
+
