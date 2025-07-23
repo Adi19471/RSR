@@ -119,7 +119,7 @@
     <div id="wrapper">
       <!-- Sidebar -->
       <ul
-        class="navbar-nav   sidebar sidebar-dark accordion"
+        class="navbar-nav sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
@@ -168,7 +168,7 @@
             data-parent="#accordionSidebar"
           >
             <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header"> </h6>
+              <h6 class="collapse-header"></h6>
               <a class="collapse-item" href="MinetoportDahboard.html"
                 >Dashboard</a
               >
@@ -258,14 +258,13 @@
               <a class="collapse-item" href="port_to_plant_discharge.html"
                 >Rail Discharge</a
               >
-                  <a class="collapse-item" href="Conveyor_Operations.html"
-          >Conveyor Operations</a
-        >
+              <!-- <a class="collapse-item" href="Conveyor_Operations.html"
+                >Conveyor Operations</a
+              > -->
             </div>
           </div>
         </li>
 
-    
         <a class="collapse-item" href="404.html"> Page Not Found</a>
 
         <!-- Divider -->
@@ -329,7 +328,7 @@
                         aria-describedby="basic-addon2"
                       />
                       <div class="input-group-append">
-                        <button class=" btn btn-success" type="button">
+                        <button class="btn btn-success" type="button">
                           <i class="fas fa-search fa-sm"></i>
                         </button>
                       </div>
@@ -397,480 +396,449 @@
             </ul>
           </nav>
 
+          <div class="card p-4 shadow rounded">
+            <h3 class="mb-4">Rail Creation</h3>
+            <form>
+              <div class="row">
+                <!-- Indent #: ID -->
+                <div class="col-md-4 mb-3">
+                  <label for="rakeId" class="form-label">Indent #:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="rakeId"
+                    value="R-2025-001"
+                    readonly
+                  />
+                </div>
 
+                <!-- Rake Ref ID -->
+                <div class="col-md-4 mb-3">
+                  <label for="rakeRefId" class="form-label">Rake Ref ID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="rakeRefId"
+                    placeholder="Manual entry"
+                  />
+                </div>
 
+                <!-- Rake Type -->
+                <div class="col-md-4 mb-3">
+                  <label for="rakeType" class="form-label">
+                    Type of Wagon</label
+                  >
+                  <select class="form-control" id="rakeType">
+                    <option selected>Tank</option>
+                    <option>Box</option>
 
-
-  <div class="card p-4 shadow rounded">
-    <h3 class="mb-4">Rail Creation</h3>
-    <form>
-      <div class="row">
-        <!-- Indent #: ID -->
-        <div class="col-md-4 mb-3">
-          <label for="rakeId" class="form-label">Indent #:</label>
-          <input type="text" class="form-control" id="rakeId" value="R-2025-004" readonly>
-        </div>
-
-        <!-- Rake Ref ID -->
-        <div class="col-md-4 mb-3">
-          <label for="rakeRefId" class="form-label">Rake Ref ID</label>
-          <input type="text" class="form-control" id="rakeRefId" placeholder="Manual entry">
-        </div>
-
-        <!-- Rake Type -->
-        <div class="col-md-4 mb-3">
-          <label for="rakeType" class="form-label"> Type of Wagon</label>
-          <select class="form-control" id="rakeType">
-            <option selected>Tank</option>
-            <option>Box</option>
-          
-            <option>BCN</option>
-            
-          </select>
-        </div>
-      </div>
-
-      <div class="row">
-        <!-- Number of Wagons -->
-        <div class="col-md-4 mb-3">
-          <label for="wagonCount" class="form-label">No. of Wagons</label>
-          <input type="number" class="form-control" id="wagonCount" placeholder="Enter wagon count">
-        </div>
-
-        
-        <!--Total Quantity(MT) -->
-        <div class="col-md-4 mb-3">
-          <label for="destination" class="form-label">Total Quantity(MT)</label>
-          <input type="text" class="form-control" id="destination" placeholder="149075">
-        </div>
-
-        <!-- Scheduled Load Date & Time -->
-        <div class="col-md-4 mb-3">
-          <label for="loadDateTime" class="form-label">Scheduled Load Date & Time</label>
-          <input type="datetime-local" class="form-control" id="loadDateTime">
-        </div>
-
-
-        
-        
- <div class="col-md-4 mb-3">
-          <label for="rakeType" class="form-label">Source Siding</label>
-          <select class="form-control" id="rakeType">
-            <option selected>Siding A</option>
-            <option selected>Siding B</option>
-            <option selected>Siding C</option>
-            <option selected>Siding D</option>
-          
-            
-          </select>
-        </div>
-
-
-
-         <div class="col-md-4 mb-3">
-          <label for="rakeType" class="form-label">Port Siding</label>
-          <select class="form-control" id="rakeType">
-            <option selected>PPAP</option>
-            <option selected>PPQP</option>
-          
-          
-            
-          </select>
-        </div>
-
-
-      
-
-
-
-
-            
-      </div>
-
-      <!-- Submit Button -->
-      <div class="text-end">
-        <button type="submit" class="btn btn-success">Save</button>
-        <button type="submit" class="btn btn-warning">Cancel</button>
-      </div>
-    </form>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="card">
-    <ul class="nav nav-tabs" id="rakeTabs" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="rail-tab" data-bs-toggle="tab" data-bs-target="#railDetails" type="button" role="tab" aria-controls="railDetails" aria-selected="true">
-          Rail Details
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="handling-tab" data-bs-toggle="tab" data-bs-target="#handling" type="button" role="tab" aria-controls="handling" aria-selected="false">
-          Handling
-        </button>
-      </li>
-      <!-- <li class="nav-item" role="presentation">
-        <button class="nav-link" id="weighment-tab" data-bs-toggle="tab" data-bs-target="#weighmentDetails" type="button" role="tab" aria-controls="weighmentDetails" aria-selected="false">
-          Weighment Details
-        </button>
-      </li> -->
-    </ul>
-    <div class="tab-content p-3 border border-top-0" id="rakeTabContent">
-      <!-- RAIL DETAILS TAB -->
-      <div class="tab-pane fade show active" id="railDetails" role="tabpanel" aria-labelledby="rail-tab">
-        <form>
-          <div class="row mb-3">
-            <div class="col-md-2">
-              <label for="indentNo" class="form-label">Indent #:</label>
-              <input type="text" class="form-control" id="indentNo" value="R-2025-004" required>
-            </div>
-            <div class="col-md-2">
-              <label for="indentDate" class="form-label">Indent Date:</label>
-              <input type="datetime-local" class="form-control" id="indentDate" required>
-            </div>
-               <div class="col-md-2">
-              <label for="rrNo" class="form-label">Rake Ref ID :</label>
-              <input type="text" class="form-control" id="rrNo">
-            </div>
-            <div class="col-md-2">
-              <label for="destCode" class="form-label">Destination Code:</label>
-              <input type="text" class="form-control" id="destCode" readonly>
-            </div>
-         
-            <div class="col-md-2">
-              <label for="destination" class="form-label">Destination:</label>
-              <select class="form-control" id="destination">
-                <option selected disabled>SELECT DESTINATION</option>
-                <option>DEST 1</option>
-                <option>DEST 2</option>
-              </select>
-            </div>
-        <div class="col-md-2">
-              <label for="customer" class="form-label">Customer:</label>
-              <select class="form-control" id="customer">
-                <option selected disabled>SELECT CUSTOMER</option>
-                <option>CUSTOMER 1</option>
-                <option>CUSTOMER 2</option>
-              </select>
-            </div>
-          </div>
-          <div class="row mb-3">
-           
-            <div class="col-md-2">
-              <label for="cargo" class="form-label">Cargo:</label>
-              <select class="form-control" id="cargo">
-                <option selected disabled>SELECT ONE</option>
-                <option>COAL</option>
-                <option>IRON</option>
-              </select>
-            </div>
-            <!-- <div class="col-md-2">
-              <label for="rail" class="form-label">Rail:</label>
-              <input type="text" class="form-control" id="rail">
-            </div> -->
-
-                 <div class="col-md-2">
-              <label for="remarks" class="form-label">Remarks:</label>
-              <textarea class="form-control" id="remarks" rows="1"></textarea>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <!-- HANDLING TAB -->
-      <div class="tab-pane fade" id="handling" role="tabpanel" aria-labelledby="handling-tab">
-  <form>
-    <div class="row g-3">
-      <!-- Row 1 -->
-      <div class="col-md-3">
-        <label class="form-label">Type of Operations: <span class="text-danger">*</span></label>
-        <select class="form-control">
-          <option>MECHANICAL</option>
-          <option>MANUAL</option>
-        </select>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Allowed Hrs:</label>
-        <input type="text" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Placement Time: <span class="text-danger">*</span></label>
-        <input type="datetime-local" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Inspection Time: <span class="text-danger">*</span></label>
-        <input type="datetime-local" class="form-control">
-      </div>
-
-      <!-- Row 2 -->
-      <div class="col-md-3">
-        <label class="form-label">Operations Clearance Time: <span class="text-danger">*</span></label>
-        <input type="datetime-local" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Loading Start Time:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Completion Time:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Engine Attached Date:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-
-      <!-- Row 3 -->
-      <div class="col-md-3">
-        <label class="form-label">Rake Drawn Out Date:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Demurrage Amount:</label>
-        <input type="text" class="form-control" value="0.0" readonly>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Net Load/Unload Time:</label>
-        <input type="text" class="form-control" value="0.32" readonly>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Actual Placement Date:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-
-      <!-- Row 4 -->
-      <div class="col-md-3">
-        <label class="form-label">Demurrage Hrs:</label>
-        <input type="text" class="form-control" value="0.0" readonly>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">ETA:</label>
-        <input type="text" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Demurrage Reason:</label>
-        <input type="text" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Actual Completion Date:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-
-      <!-- Row 5 -->
-      <div class="col-md-3">
-        <label class="form-label">Inspection Officer:</label>
-        <input type="text" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Load/Unload Complete: <span class="text-danger">*</span></label>
-        <select class="form-control">
-          <option>YES</option>
-          <option>NO</option>
-        </select>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Total Loaded Qty:</label>
-        <input type="text" class="form-control" value="0.000" readonly>
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Weightment In:</label>
-        <input type="datetime-local" class="form-control">
-      </div>
-
-      <!-- Row 6 -->
-      <div class="col-md-3">
-        <label class="form-label">Total Freight Charged:</label>
-        <input type="text" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Total Wagons:</label>
-        <input type="text" class="form-control" value="46" readonly>
-      </div>
-
-      <div class="col-md-3">
-        <label class="form-label">Chargable Weight :</label>
-        <input type="text" class="form-control" value="46" readonly>
-      </div>
-
-         <div class="col-md-3">
-        <label class="form-label">RR Net Weight :</label>
-        <input type="text" class="form-control" value="46" readonly>
-      </div>
-
-      <div class="col-md-3">
-        <label class="form-label">Gross Weight :</label>
-        <input type="text" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Tare Weight:</label>
-        <input type="text" class="form-control">
-      </div>
-
-
-       <div class="col-md-3">
-        <label class="form-label">CH/ Weight:</label>
-        <input type="text" class="form-control">
-      </div>
-
-
-    </div>
-  </form>
-</div>
-
-
-
-
-  </div>
-
- <!-- Include Bootstrap CSS (if not already) -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- <div class="tab-pane fade show active" id="weighmentDetails" role="tabpanel" aria-labelledby="weighment-tab">
-  <div class="table-responsive mt-3">
-    <table class="table table-bordered table-striped table-hover align-middle text-center">
-      <thead class="table-dark">
-        <tr>
-          <th>Sl No</th>
-          <th>Wagon #</th>
-          <th>Wagon Type</th>
-          <th>Printed Tare</th>
-          <th>Carrying Capacity</th>
-          <th>Gross WT Tonne</th>
-          <th>Tare WT</th>
-          <th>Net WT</th>
-          <th>Over WT</th>
-          <th>Charge WT</th>
-          <th>Under WT</th>
-          <th>Speed</th>
-          <th>Owning Railway</th>
-          <th># Articles</th>
-          <th>Commodity Code</th>
-          <th>Measurement Weight</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="wagonTableBody">
-        <tr>
-          <td>1</td>
-          <td>WR123456</td>
-          <td>BOXN</td>
-          <td>21.5</td>
-          <td>70</td>
-          <td>85.0</td>
-          <td>21.5</td>
-          <td>63.5</td>
-          <td>0</td>
-          <td>63.5</td>
-          <td>0</td>
-          <td>60</td>
-          <td>WR</td>
-          <td>10</td>
-          <td>1021</td>
-          <td>63.0</td>
-          <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="d-flex justify-content-end">
-      <button class="btn btn-success" onclick="addRow()">Add Wagon</button>
-    </div>
-  </div>
-</div> -->
-
-<!-- JS: Add/Delete Row -->
-<script>
-  let wagonCounter = 2;
-
-  function addRow() {
-    const tableBody = document.getElementById("wagonTableBody");
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${wagonCounter}</td>
-      <td>WR12345${wagonCounter}</td>
-      <td>BOXN</td>
-      <td>22.0</td>
-      <td>68</td>
-      <td>83.0</td>
-      <td>22.0</td>
-      <td>61.0</td>
-      <td>0</td>
-      <td>61.0</td>
-      <td>0</td>
-      <td>55</td>
-      <td>CR</td>
-      <td>8</td>
-      <td>1022</td>
-      <td>60.0</td>
-      <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button></td>
-    `;
-    tableBody.appendChild(row);
-    wagonCounter++;
-  }
-
-  function deleteRow(btn) {
-    const row = btn.closest("tr");
-    row.remove();
-    // Recalculate Sl No
-    const rows = document.querySelectorAll("#wagonTableBody tr");
-    rows.forEach((r, index) => {
-      r.children[0].textContent = index + 1;
-    });
-    wagonCounter = rows.length + 1;
-  }
-</script>
-
-
-
-
-</div>
-    </div>
-
-          <div class="card">
-            <h3>Rake Dispatch & Tracking</h3>
-            <div class="filter-section">
-              <div class="filter-row">
-                <div class="form-group">
-                  <label>Filter by Status</label>
-                  <select>
-                    <option>All</option>
-                    <option>Scheduled</option>
-                    <option>En Route</option>
-                    <option>Arrived</option>
-                    <option>Unloading</option>
-                    <option>Completed</option>
+                    <option>BCN</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label>Date Range</label>
-                  <input type="date" />
+              </div>
+
+              <div class="row">
+                <!-- Number of Wagons -->
+                <div class="col-md-4 mb-3">
+                  <label for="wagonCount" class="form-label"
+                    >No. of Wagons</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="wagonCount"
+                    placeholder="Enter wagon count"
+                  />
                 </div>
-                <div class="form-group">
-                  <label>&nbsp;</label>
-                  <button class="btn btn-info">Apply Filters</button>
+
+                <!--Total Quantity(MT) -->
+                <div class="col-md-4 mb-3">
+                  <label for="destination" class="form-label"
+                    >Total Quantity(MT)</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="destination"
+                    placeholder="149075"
+                  />
+                </div>
+
+                <!-- Scheduled Load Date & Time -->
+                <div class="col-md-4 mb-3">
+                  <label for="loadDateTime" class="form-label"
+                    >Scheduled Load Date & Time</label
+                  >
+                  <input
+                    type="datetime-local"
+                    class="form-control"
+                    id="loadDateTime"
+                  />
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="rakeType" class="form-label">Source Siding</label>
+                  <select class="form-control" id="rakeType">
+                    <option selected>Siding A</option>
+                    <option selected>Siding B</option>
+                    <option selected>Siding C</option>
+                    <option selected>Siding D</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="rakeType" class="form-label">Port Siding</label>
+                  <select class="form-control" id="rakeType">
+                    <option selected>PPAP</option>
+                    <option selected>PPQP</option>
+                  </select>
                 </div>
               </div>
+
+              <!-- Submit Button -->
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="submit" class="btn btn-warning">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <ul class="nav nav-tabs" id="rakeTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="rail-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#railDetails"
+                  type="button"
+                  role="tab"
+                  aria-controls="railDetails"
+                  aria-selected="true"
+                >
+                  Rail Details
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="handling-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#handling"
+                  type="button"
+                  role="tab"
+                  aria-controls="handling"
+                  aria-selected="false"
+                >
+                  Load Handling
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="discharge-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#discharge"
+                  type="button"
+                  role="tab"
+                  aria-controls="discharge"
+                  aria-selected="false"
+                >
+                  Discharge Handling
+                </button>
+              </li>
+            </ul>
+
+            <div
+              class="tab-content p-3 border border-top-0"
+              id="rakeTabContent"
+            >
+              <!-- RAIL DETAILS TAB -->
+              <div
+                class="tab-pane fade show active"
+                id="railDetails"
+                role="tabpanel"
+                aria-labelledby="rail-tab"
+              >
+                <form>
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <label for="indentNo" class="form-label">Indent #:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="indentNo"
+                        value="R-2025-001"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-2">
+                      <label for="indentDate" class="form-label"
+                        >Indent Date:</label
+                      >
+                      <input
+                        type="datetime-local"
+                        class="form-control"
+                        id="indentDate"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-2">
+                      <label for="rrNo" class="form-label">Rake Ref ID :</label>
+                      <input type="text" class="form-control" id="rrNo" />
+                    </div>
+                    <div class="col-md-2">
+                      <label for="destCode" class="form-label"
+                        >Destination Code:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="destCode"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-md-2">
+                      <label for="destination" class="form-label"
+                        >Destination:</label
+                      >
+                      <select class="form-control" id="destination">
+                        <option selected disabled>SELECT DESTINATION</option>
+                        <option>DEST 1</option>
+                        <option>DEST 2</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <label for="customer" class="form-label">Customer:</label>
+                      <select class="form-control" id="customer">
+                        <option selected disabled>SELECT CUSTOMER</option>
+                        <option>CUSTOMER 1</option>
+                        <option>CUSTOMER 2</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-md-2">
+                      <label for="cargo" class="form-label">Cargo:</label>
+                      <select class="form-control" id="cargo">
+                        <option selected disabled>SELECT ONE</option>
+                        <option>COAL</option>
+                        <option>IRON</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">RR Net Weight :</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="46"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">Gross Weight :</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">Tare Weight:</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">CH/ Weight:</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">Total Load Quantity</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                      <label class="form-label">Total Discharge Quantity</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                      <label for="remarks" class="form-label">Remarks:</label>
+                      <textarea
+                        class="form-control"
+                        id="remarks"
+                        rows="1"
+                      ></textarea>
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <!-- HANDLING TAB -->
+              <div
+                class="tab-pane fade"
+                id="handling"
+                role="tabpanel"
+                aria-labelledby="handling-tab"
+              >
+                <form>
+                  <div class="row g-3">
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Type of Operations:
+                        <span class="text-danger">*</span></label
+                      >
+                      <select class="form-control">
+                        <option>MECHANICAL</option>
+                        <option>MANUAL</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Placement Time:
+                        <span class="text-danger">*</span></label
+                      >
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Operations Clearance Time:
+                        <span class="text-danger">*</span></label
+                      >
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Load Start Time:</label>
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Load Completion Time:</label>
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Demurrage Amount:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="0.0"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Demurrage Hrs:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="0.0"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Demurrage Reason:</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Total Loaded Qty:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="0.000"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+              <!-- DISCHARGE TAB -->
+              <div
+                class="tab-pane fade"
+                id="discharge"
+                role="tabpanel"
+                aria-labelledby="discharge-tab"
+              >
+                <form>
+                  <div class="row g-3">
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Type of Operations:
+                        <span class="text-danger">*</span></label
+                      >
+                      <select class="form-control">
+                        <option>MECHANICAL</option>
+                        <option>MANUAL</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Placement Time:
+                        <span class="text-danger">*</span></label
+                      >
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Operations Clearance Time:
+                        <span class="text-danger">*</span></label
+                      >
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Discharge Start Time:</label>
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label"
+                        >Discharge Completion Time:</label
+                      >
+                      <input type="datetime-local" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Demurrage Amount:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="0.0"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Demurrage Hrs:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="0.0"
+                        readonly
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Demurrage Reason:</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Total Discharge Qty:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="0.000"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
-            <div class="table-container ">
+          </div>
+
+          <!-- <h5 class="mb-0">Rake Dispatch & Tracking</h5> -->
+
+          <div class="card">
+            <div class="table-container">
               <table class="table table-bordered border-primary table-hover">
                 <thead>
                   <tr>
-                    <th>Rake ID</th>
+                    <th>Indent #</th>
                     <th>Rake Ref ID</th>
-                    <th>Dispatch Date</th>
-                    <th>FOIS Reference</th>
+                    <th>Type of Wagon</th>
+                    <th>Source Siding</th>
+                    <th>Port Siding</th>
+                    <th>No of Wagon</th>
+                    <th>Destination</th>
                     <th>Current Status</th>
-                    <th>ETA at Port</th>
                     <th>Edit</th>
                     <th>Tracking</th>
                   </tr>
@@ -879,43 +847,43 @@
                   <tr>
                     <td>R-2025-001</td>
                     <td>REF-001</td>
-                    <td>2025-07-16 08:30</td>
-                    <td>FOIS-789456</td>
+                    <td>BOXN</td>
+                    <td>Siding A</td>
+                    <td>PPAQ</td>
+                    <td>65</td>
+                    <td>Delhi Yard</td>
                     <td>
                       <span class="status-badge status-enroute">En Route</span>
                     </td>
-                    <td>2025-07-16 14:30</td>
-                    <td>
-                      <button class="btn btn-secondary">Track/Edit</button>
-                    </td>
+                    <td><button class="btn btn-secondary">Edit</button></td>
                     <td><button class="btn btn-secondary">Track</button></td>
                   </tr>
                   <tr>
                     <td>R-2025-002</td>
                     <td>REF-002</td>
-                    <td>2025-07-16 06:15</td>
-                    <td>FOIS-789457</td>
+                    <td>BCNHL</td>
+                    <td>Siding B</td>
+                    <td>PPAQ</td>
+                    <td>66</td>
+                    <td>Mumbai Port</td>
                     <td>
                       <span class="status-badge status-arrived">Arrived</span>
                     </td>
-                    <td>2025-07-16 12:15</td>
-                    <td>
-                      <button class="btn btn-secondary">Track/Edit</button>
-                    </td>
+                    <td><button class="btn btn-secondary">Edit</button></td>
                     <td><button class="btn btn-secondary">Track</button></td>
                   </tr>
                   <tr>
                     <td>R-2025-003</td>
                     <td>REF-003</td>
-                    <td>2025-07-16 10:45</td>
-                    <td>FOIS-789458</td>
+                    <td>BTPN</td>
+                    <td>Siding C</td>
+                    <td>PPAQ</td>
+                    <td>88</td>
+                    <td>Kolkata Yard</td>
                     <td>
                       <span class="status-badge status-loading">Loading</span>
                     </td>
-                    <td>2025-07-16 16:45</td>
-                    <td>
-                      <button class="btn btn-secondary">Track/Edit</button>
-                    </td>
+                    <td><button class="btn btn-secondary">Edit</button></td>
                     <td><button class="btn btn-secondary">Track</button></td>
                   </tr>
                 </tbody>
@@ -923,49 +891,26 @@
             </div>
           </div>
         </div>
-</div>
-                </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Infyz Solution 2025</span>
             </div>
-
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Infyz Solution  2025</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
+      <i class="fas fa-angle-up"></i>
     </a>
-
-
-
-
-
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -982,11 +927,7 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
-
-
-

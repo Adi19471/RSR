@@ -1,496 +1,921 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
 
-    <title>R-S-R - Dashboard</title>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-    <!-- Custom fonts for this template-->
-    <link
-      href="vendor/fontawesome-free/css/all.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-      rel="stylesheet"
-    />
+  <title>R-S-R - Dashboard</title>
 
-    <!-- Custom styles for this template-->
-    <link href="default.css" rel="stylesheet" />
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
 
-    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
-  </head>
-  <style>
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
+  <!-- Custom styles for this template-->
+  <link href="default.css" rel="stylesheet" />
 
-    .kpi-card {
-      background: #fff;
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      padding: 1.2rem 1rem;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+</head>
+<style>
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
 
-    .kpi-card::before {
-      content: "";
-      width: 4px;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      border-radius: 0.5rem 0 0 0.5rem;
-    }
+  .kpi-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 1.2rem 1rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .kpi-content {
-      display: flex;
-      flex-direction: column;
-    }
+  .kpi-card::before {
+    content: "";
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
 
-    .kpi-value {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
+  .kpi-content {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .kpi-label {
-      color: #6c757d;
-      font-size: 0.9rem;
-    }
+  .kpi-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 
-    .kpi-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  .kpi-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
 
-    .kpi-value {
-      color: black;
-    }
-    /* Color variations */
-    .kpi-card.purple::before {
-      background-color: #6f42c1;
-    }
-    .kpi-card.purple .kpi-icon {
-      background-color: #6f42c1;
-    }
+  .kpi-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .kpi-card.yellow::before {
-      background-color: #f0ad4e;
-    }
-    .kpi-card.yellow .kpi-icon {
-      background-color: #f0ad4e;
-    }
+  .kpi-value {
+    color: black;
+  }
 
-    .kpi-card.teal::before {
-      background-color: #20c997;
-    }
-    .kpi-card.teal .kpi-icon {
-      background-color: #20c997;
-    }
+  /* Color variations */
+  .kpi-card.purple::before {
+    background-color: #6f42c1;
+  }
 
-    .kpi-card.pink::before {
-      background-color: #e83e8c;
-    }
-    .kpi-card.pink .kpi-icon {
-      background-color: #e83e8c;
-    }
-  </style>
-  <body id="page-top">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-      <!-- Sidebar -->
-      <ul
-        class="navbar-nav   sidebar sidebar-dark accordion"
-        id="accordionSidebar"
-      >
-        <!-- Sidebar - Brand -->
-        <a
-          class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
-        >
-          <div class="sidebar-brand-icon rotate-n-15"></div>
-          <div class="sidebar-brand-text mx-3 fa-2x">RSR</div>
+  .kpi-card.purple .kpi-icon {
+    background-color: #6f42c1;
+  }
+
+  .kpi-card.yellow::before {
+    background-color: #f0ad4e;
+  }
+
+  .kpi-card.yellow .kpi-icon {
+    background-color: #f0ad4e;
+  }
+
+  .kpi-card.teal::before {
+    background-color: #20c997;
+  }
+
+  .kpi-card.teal .kpi-icon {
+    background-color: #20c997;
+  }
+
+  .kpi-card.pink::before {
+    background-color: #e83e8c;
+  }
+
+  .kpi-card.pink .kpi-icon {
+    background-color: #e83e8c;
+  }
+</style>
+
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav   sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15"></div>
+        <div class="sidebar-brand-text mx-3 fa-2x">RSR</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0" />
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
+
+      <!-- Heading -->
+      <div class="sidebar-heading">Mine To Port</div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+          aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span> Mine To Port</span>
         </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0" />
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a
-          >
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
-
-        <!-- Heading -->
-        <div class="sidebar-heading">Mine To Port</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            href="#"
-            data-toggle="collapse"
-            data-target="#collapseTwo"
-            aria-expanded="true"
-            aria-controls="collapseTwo"
-          >
-            <i class="fas fa-fw fa-cog"></i>
-            <span> Mine To Port</span>
-          </a>
-          <div
-            id="collapseTwo"
-            class="collapse"
-            aria-labelledby="headingTwo"
-            data-parent="#accordionSidebar"
-          >
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header"> </h6>
-              <a class="collapse-item" href="MinetoportDahboard.html"
-                >Dashboard</a
-              >
-              <a class="collapse-item" href="Minetoport_Create.html">Create</a>
-              <a class="collapse-item" href="Mine_to_port_load.html"
-                >Rail Load</a
-              >
-              <a class="collapse-item" href="Mine_to_port_discharge.html"
-                >Rail Disacharge</a
-              >
-            </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header"> </h6>
+            <a class="collapse-item" href="MinetoportDahboard.html">Dashboard</a>
+            <a class="collapse-item" href="Minetoport_Create.html">Create</a>
+            <a class="collapse-item" href="Mine_to_port_load.html">Rail Load</a>
+            <a class="collapse-item" href="Mine_to_port_discharge.html">Rail Disacharge</a>
           </div>
-        </li>
+        </div>
+      </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Port To Port</div>
+      <!-- Heading -->
+      <div class="sidebar-heading">Port To Port</div>
 
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            href="#"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsePortToPort"
-            aria-expanded="false"
-            aria-controls="collapsePortToPort"
-          >
-            <i class="fas fa-fw fa-ship"></i>
-            <span>Port To Port</span>
-          </a>
-          <div
-            id="collapsePortToPort"
-            class="collapse"
-            aria-labelledby="headingPortToPort"
-          >
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Port To Port</h6>
-              <a class="collapse-item" href="port_port_Dashboard.html"
-                >Dashboard</a
-              >
-              <a class="collapse-item" href="port_to_port_load.html"
-                >Vessel Load</a
-              >
-              <a class="collapse-item" href="port_to_port_discharge.html">
-                Vessel Discharge</a
-              >
-            </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePortToPort"
+          aria-expanded="false" aria-controls="collapsePortToPort">
+          <i class="fas fa-fw fa-ship"></i>
+          <span>Port To Port</span>
+        </a>
+        <div id="collapsePortToPort" class="collapse" aria-labelledby="headingPortToPort">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Port To Port</h6>
+            <a class="collapse-item" href="port_port_Dashboard.html">Dashboard</a>
+            <a class="collapse-item" href="port_to_port_load.html">Vessel Load</a>
+            <a class="collapse-item" href="port_to_port_discharge.html">
+              Vessel Discharge</a>
           </div>
-        </li>
+        </div>
+      </li>
 
-        <!-- Divider -->
-        <hr class="sidebar-divider" />
+      <!-- Divider -->
+      <hr class="sidebar-divider" />
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Port To Plant</div>
+      <!-- Heading -->
+      <div class="sidebar-heading">Port To Plant</div>
 
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            href="#"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsePortToPlant"
-            aria-expanded="false"
-            aria-controls="collapsePortToPlant"
-          >
-            <i class="fas fa-fw fa-industry"></i>
-            <span>Port To Plant</span>
-          </a>
-          <div
-            id="collapsePortToPlant"
-            class="collapse"
-            aria-labelledby="headingPortToPlant"
-          >
-            <div class="bg-white py-2 collapse-inner rounded">
-              <h6 class="collapse-header">Port To Plant</h6>
-              <a class="collapse-item" href="port_to_plant_Dashboard.html"
-                >Dashboard</a
-              >
-              <a class="collapse-item" href="port_to_plant_Creation.html"
-                >Create</a
-              >
-              <a class="collapse-item" href="port_to_plant_load.html"
-                >Rail Load</a
-              >
-              <a class="collapse-item" href="port_to_plant_discharge.html"
-                >Rail Discharge</a
-              >
-                <a class="collapse-item" href="Conveyor_Operations.html"
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePortToPlant"
+          aria-expanded="false" aria-controls="collapsePortToPlant">
+          <i class="fas fa-fw fa-industry"></i>
+          <span>Port To Plant</span>
+        </a>
+        <div id="collapsePortToPlant" class="collapse" aria-labelledby="headingPortToPlant">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Port To Plant</h6>
+            <a class="collapse-item" href="port_to_plant_Dashboard.html">Dashboard</a>
+            <a class="collapse-item" href="port_to_plant_Creation.html">Create</a>
+            <a class="collapse-item" href="port_to_plant_load.html">Rail Load</a>
+            <a class="collapse-item" href="port_to_plant_discharge.html">Rail Discharge</a>
+            <!-- <a class="collapse-item" href="Conveyor_Operations.html"
           >Conveyor Operations</a
-        >
-            </div>
+        > -->
           </div>
-        </li>
-
-      
-        <a class="collapse-item" href="404.html"> Page Not Found</a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block" />
-
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-          <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
+      </li>
 
-        <!-- Sidebar Message -->
-      </ul>
-      <!-- End of Sidebar -->
 
-      <!-- Content Wrapper -->
+      <a class="collapse-item" href="404.html"> Page Not Found</a>
 
-      <div id="content-wrapper" class="d-flex flex-column">
-        <!-- Main Content -->
-        <div id="content">
-          <!-- Topbar -->
-          <nav
-            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
-          >
-            <!-- Sidebar Toggle (Topbar) -->
-            <button
-              id="sidebarToggleTop"
-              class="btn btn-link d-md-none rounded-circle mr-3"
-            >
-              <i class="fa fa-bars"></i>
-            </button>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block" />
 
-            <!-- Topbar Search -->
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
 
-            <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
-              <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-              <li class="nav-item dropdown no-arrow d-sm-none">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="searchDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-search fa-fw"></i>
+      <!-- Sidebar Message -->
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                      aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                      <button class=" btn btn-success" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+            <!-- Nav Item - Alerts -->
+
+            <!-- Nav Item - Messages -->
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Infyz</span>
+                <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
                 </a>
-                <!-- Dropdown - Messages -->
-                <div
-                  class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                  aria-labelledby="searchDropdown"
-                >
-                  <form class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control bg-light border-0 small"
-                        placeholder="Search for..."
-                        aria-label="Search"
-                        aria-describedby="basic-addon2"
-                      />
-                      <div class="input-group-append">
-                        <button class=" btn btn-success" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+
+
+
+
+        <div class="container-fluid">
+
+          <h5 class="mb-3 text-secondary ">Rail Discharge</h5>
+
+
+          <div class="card p-4 shadow rounded">
+
+            <form>
+              <div class="row">
+                <!-- Indent #: ID -->
+                <div class="col-md-4 mb-3">
+                  <label for="rakeId" class="form-label">Indent #:</label>
+                  <input type="text" class="form-control" id="rakeId" value="R-2025-001" readonly>
+                </div>
+
+                <!-- Rake Ref ID -->
+                <div class="col-md-4 mb-3">
+                  <label for="rakeRefId" class="form-label">Rake Ref ID</label>
+                  <input type="text" class="form-control" id="rakeRefId" placeholder="Manual entry">
+                </div>
+
+                <!-- Rake Type -->
+                <div class="col-md-4 mb-3">
+                  <label for="rakeType" class="form-label"> Type of Wagon</label>
+                  <select class="form-control" id="rakeType">
+                    <option selected>Tank</option>
+                    <option>Box</option>
+
+                    <option>BCN</option>
+
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- Number of Wagons -->
+                <div class="col-md-4 mb-3">
+                  <label for="wagonCount" class="form-label">No. of Wagons</label>
+                  <input type="number" class="form-control" id="wagonCount" placeholder="Enter wagon count">
+                </div>
+
+
+                <!--Total Quantity(MT) -->
+                <div class="col-md-4 mb-3">
+                  <label for="destination" class="form-label">Total Quantity(MT)</label>
+                  <input type="text" class="form-control" id="destination" placeholder="149075">
+                </div>
+
+                <!-- Scheduled Load Date & Time -->
+
+                <div class="col-md-3">
+                  <label class="form-label">ETA:</label>
+                  <input type="text" class="form-control">
+                </div>
+
+
+
+                <div class="col-md-4 mb-3">
+                  <label for="rakeType" class="form-label">Source Siding</label>
+                  <select class="form-control" id="rakeType">
+                    <option selected>Siding A</option>
+                    <option selected>Siding B</option>
+                    <option selected>Siding C</option>
+                    <option selected>Siding D</option>
+
+
+                  </select>
+                </div>
+
+
+
+                <div class="col-md-4 mb-3">
+                  <label for="rakeType" class="form-label">Port Siding</label>
+                  <select class="form-control" id="rakeType">
+                    <option selected>PPAP</option>
+                    <option selected>PPQP</option>
+
+
+
+                  </select>
+                </div>
+
+
+
+
+                <!-- <div class="col-md-4 mb-3">
+          <label for="loadDateTime" class="form-label"> Load Date & Time</label>
+          <input type="datetime-local" class="form-control" id="loadDateTime">
+        </div>
+ -->
+
+
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-end">
+                <button type="submit" class="btn btn-success">Update</button>
+                <button type="submit" class="btn btn-warning">Cancel</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card shadow-sm p-3">
+            <div class="row align-items-center">
+              <!-- Left side: Heading -->
+
+
+
+
+              <div class="card">
+                <ul class="nav nav-tabs" id="rakeTabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="rail-tab" data-bs-toggle="tab" data-bs-target="#railDetails"
+                      type="button" role="tab" aria-controls="railDetails" aria-selected="true">
+                      Rail Details
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="handling-tab" data-bs-toggle="tab" data-bs-target="#handling"
+                      type="button" role="tab" aria-controls="handling" aria-selected="false">
+                      Discharge Handling
+                    </button>
+                  </li>
+                  <!-- <li class="nav-item" role="presentation">
+        <button class="nav-link" id="weighment-tab" data-bs-toggle="tab" data-bs-target="#weighmentDetails" type="button" role="tab" aria-controls="weighmentDetails" aria-selected="false">
+          Weighment Details
+        </button>
+      </li> -->
+                </ul>
+                <div class="tab-content p-3 border border-top-0" id="rakeTabContent">
+                  <div class="tab-content p-3 border border-top-0" id="rakeTabContent">
+                    <!-- RAIL DETAILS TAB -->
+                    <div class="tab-pane fade show active" id="railDetails" role="tabpanel" aria-labelledby="rail-tab">
+                      <form>
+                        <div class="row mb-3">
+                          <div class="col-md-2">
+                            <label for="indentNo" class="form-label">Indent #:</label>
+                            <input type="text" class="form-control" id="indentNo" value="R-2025-001" required>
+                          </div>
+                          <div class="col-md-2">
+                            <label for="indentDate" class="form-label">Indent Date:</label>
+                            <input type="datetime-local" class="form-control" id="indentDate" required>
+                          </div>
+                          <div class="col-md-2">
+                            <label for="rrNo" class="form-label">Rake Ref ID :</label>
+                            <input type="text" class="form-control" id="rrNo">
+                          </div>
+                          <div class="col-md-2">
+                            <label for="destCode" class="form-label">Destination Code:</label>
+                            <input type="text" class="form-control" id="destCode" readonly>
+                          </div>
+
+                          <div class="col-md-2">
+                            <label for="destination" class="form-label">Destination:</label>
+                            <select class="form-control" id="destination">
+                              <option selected disabled>SELECT DESTINATION</option>
+                              <option>DEST 1</option>
+                              <option>DEST 2</option>
+                            </select>
+                          </div>
+
+
+
+                          <div class="col-md-2">
+                            <label for="customer" class="form-label">Customer:</label>
+                            <select class="form-control" id="customer">
+                              <option selected disabled>SELECT CUSTOMER</option>
+                              <option>CUSTOMER 1</option>
+                              <option>CUSTOMER 2</option>
+                            </select>
+                          </div>
+                        </div>
+
+
+
+                        <div class="row mb-3">
+
+                          <div class="col-md-2">
+                            <label for="cargo" class="form-label">Cargo:</label>
+                            <select class="form-control" id="cargo">
+                              <option selected disabled>SELECT ONE</option>
+                              <option>COAL</option>
+                              <option>IRON</option>
+                            </select>
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">RR Net Weight :</label>
+                            <input type="text" class="form-control" value="46" readonly>
+                          </div>
+
+                          <div class="col-md-2">
+                            <label class="form-label">Gross Weight :</label>
+                            <input type="text" class="form-control">
+                          </div>
+                          <div class="col-md-2">
+                            <label class="form-label">Tare Weight:</label>
+                            <input type="text" class="form-control">
+                          </div>
+
+
+                          <div class="col-md-2">
+                            <label class="form-label">CH/ Weight:</label>
+                            <input type="text" class="form-control">
+                          </div>
+
+                          <div class="col-md-2">
+                            <label for="remarks" class="form-label">Remarks:</label>
+                            <textarea class="form-control" id="remarks" rows="1"></textarea>
+                          </div>
+
+
+                          <!-- <div class="col-md-2">
+              <label for="rail" class="form-label">Rail:</label>
+              <input type="text" class="form-control" id="rail">
+            </div> -->
+
+
+
+
+                        </div>
+                      </form>
+                    </div>
+
+                    <!-- HANDLING TAB -->
+                    <div class="tab-pane fade" id="handling" role="tabpanel" aria-labelledby="handling-tab">
+                      <form>
+                        <div class="row g-3">
+                          <!-- Row 1 -->
+                          <div class="col-md-3">
+                            <label class="form-label">Type of Operations: <span class="text-danger">*</span></label>
+                            <select class="form-control">
+                              <option>MECHANICAL</option>
+                              <option>MANUAL</option>
+                            </select>
+                          </div>
+                          <!-- <div class="col-md-3">
+        <label class="form-label">Allowed Hrs:</label>
+        <input type="text" class="form-control">
+      </div> -->
+                          <div class="col-md-3">
+                            <label class="form-label">Placement Time: <span class="text-danger">*</span></label>
+                            <input type="datetime-local" class="form-control">
+                          </div>
+                          <!-- <div class="col-md-3">
+        <label class="form-label">Inspection Time: <span class="text-danger">*</span></label>
+        <input type="datetime-local" class="form-control">
+      </div> -->
+
+                          <!-- Row 2 -->
+                          <div class="col-md-3">
+                            <label class="form-label">Operations Clearance Time: <span
+                                class="text-danger">*</span></label>
+                            <input type="datetime-local" class="form-control">
+                          </div>
+                          <!-- <div class="col-md-3">
+        <label class="form-label">Load Start Time:</label>
+        <input type="datetime-local" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Load Completion Time:</label>
+        <input type="datetime-local" class="form-control">
+      </div> -->
+
+
+                          <div class="col-md-3">
+                            <label class="form-label"> Discharge Start Time:</label>
+                            <input type="datetime-local" class="form-control">
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <label class="form-label">Discharge Completion Time:</label>
+                            <input type="datetime-local" class="form-control">
+                          </div>
+
+
+                          <div class="col-md-3">
+                            <label class="form-label">Demurrage Amount:</label>
+                            <input type="text" class="form-control" value="0.0" readonly>
+                          </div>
+
+
+
+                          <!-- Row 4 -->
+                          <div class="col-md-3">
+                            <label class="form-label">Demurrage Hrs:</label>
+                            <input type="text" class="form-control" value="0.0" readonly>
+                          </div>
+
+                          <div class="col-md-3">
+                            <label class="form-label">Demurrage Reason:</label>
+                            <input type="text" class="form-control">
+                          </div>
+
+
+                          <!-- Row 5 -->
+
+                          <div class="col-md-3">
+                            <label class="form-label">Total Discharge Qty:</label>
+                            <input type="text" class="form-control" value="0.000" readonly>
+                          </div>
+
+
+
+
+
+                        </div>
+                      </form>
+                    </div>
+
+
+
+
+                  </div>
+
+                  <!-- HANDLING TAB -->
+                  <div class="tab-pane fade" id="handling" role="tabpanel" aria-labelledby="handling-tab">
+                    <form>
+                      <div class="row g-3">
+                        <!-- Row 1 -->
+                        <div class="col-md-3">
+                          <label class="form-label">Type of Operations: <span class="text-danger">*</span></label>
+                          <select class="form-control">
+                            <option>MECHANICAL</option>
+                            <option>MANUAL</option>
+                          </select>
+                        </div>
+                        <!-- <div class="col-md-3">
+        <label class="form-label">Allowed Hrs:</label>
+        <input type="text" class="form-control">
+      </div> -->
+                        <div class="col-md-3">
+                          <label class="form-label">Placement Time: <span class="text-danger">*</span></label>
+                          <input type="datetime-local" class="form-control">
+                        </div>
+                        <!-- <div class="col-md-3">
+        <label class="form-label">Inspection Time: <span class="text-danger">*</span></label>
+        <input type="datetime-local" class="form-control">
+      </div> -->
+
+                        <!-- Row 2 -->
+                        <div class="col-md-3">
+                          <label class="form-label">Operations Clearance Time: <span
+                              class="text-danger">*</span></label>
+                          <input type="datetime-local" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Loading Start Time:</label>
+                          <input type="datetime-local" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Loading Completion Time:</label>
+                          <input type="datetime-local" class="form-control">
+                        </div>
+                        <!-- <div class="col-md-3">
+        <label class="form-label">Engine Attached Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div> -->
+
+                        <!-- Row 3 -->
+                        <!-- <div class="col-md-3">
+        <label class="form-label">Rake Drawn Out Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div> -->
+                        <div class="col-md-3">
+                          <label class="form-label">Demurrage Amount:</label>
+                          <input type="text" class="form-control" value="0.0" readonly>
+                        </div>
+
+                        <!-- Row 4 -->
+                        <div class="col-md-3">
+                          <label class="form-label">Demurrage Hrs:</label>
+                          <input type="text" class="form-control" value="0.0" readonly>
+                        </div>
+
+                        <div class="col-md-3">
+                          <label class="form-label">Demurrage Reason:</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <!-- <div class="col-md-3">
+        <label class="form-label">Actual Completion Date:</label>
+        <input type="datetime-local" class="form-control">
+      </div> -->
+
+                        <!-- Row 5 -->
+                        <!-- <div class="col-md-3">
+        <label class="form-label">Inspection Officer:</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Load/Unload Complete: <span class="text-danger">*</span></label>
+        <select class="form-control">
+          <option>YES</option>
+          <option>NO</option>
+        </select>
+      </div> -->
+                        <div class="col-md-3">
+                          <label class="form-label">Total Loaded Qty:</label>
+                          <input type="text" class="form-control" value="0.000" readonly>
+                        </div>
+
+
+
+                        <div class="col-md-3">
+                          <label class="form-label">Chargable Weight :</label>
+                          <input type="text" class="form-control" value="46" readonly>
+                        </div>
+
+                        <div class="col-md-3">
+                          <label class="form-label">RR Net Weight :</label>
+                          <input type="text" class="form-control" value="46" readonly>
+                        </div>
+
+                        <div class="col-md-3">
+                          <label class="form-label">Gross Weight :</label>
+                          <input type="text" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                          <label class="form-label">Tare Weight:</label>
+                          <input type="text" class="form-control">
+                        </div>
+
+
+                        <div class="col-md-3">
+                          <label class="form-label">CH/ Weight:</label>
+                          <input type="text" class="form-control">
+                        </div>
+
+
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
+
+
+
                 </div>
-              </li>
 
-              <!-- Nav Item - Alerts -->
+                <!-- Include Bootstrap CSS (if not already) -->
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-              <!-- Nav Item - Messages -->
+                <!-- <div class="tab-pane fade show active" id="weighmentDetails" role="tabpanel" aria-labelledby="weighment-tab">
+  <div class="table-responsive mt-3">
+    <table class="table table-bordered table-striped table-hover align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Sl No</th>
+          <th>Wagon #</th>
+          <th>Wagon Type</th>
+          <th>Printed Tare</th>
+          <th>Carrying Capacity</th>
+          <th>Gross WT Tonne</th>
+          <th>Tare WT</th>
+          <th>Net WT</th>
+          <th>Over WT</th>
+          <th>Charge WT</th>
+          <th>Under WT</th>
+          <th>Speed</th>
+          <th>Owning Railway</th>
+          <th># Articles</th>
+          <th>Commodity Code</th>
+          <th>Measurement Weight</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="wagonTableBody">
+        <tr>
+          <td>1</td>
+          <td>WR123456</td>
+          <td>BOXN</td>
+          <td>21.5</td>
+          <td>70</td>
+          <td>85.0</td>
+          <td>21.5</td>
+          <td>63.5</td>
+          <td>0</td>
+          <td>63.5</td>
+          <td>0</td>
+          <td>60</td>
+          <td>WR</td>
+          <td>10</td>
+          <td>1021</td>
+          <td>63.0</td>
+          <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
 
-              <div class="topbar-divider d-none d-sm-block"></div>
-
-              <!-- Nav Item - User Information -->
-              <li class="nav-item dropdown no-arrow">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="userDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Infyz</span
-                  >
-                  <img
-                    class="img-profile rounded-circle"
-                    src="img/undraw_profile.svg"
-                  />
-                </a>
-                <!-- Dropdown - User Information -->
-                <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown"
-                >
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#logoutModal"
-                  >
-                    <i
-                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                    ></i>
-                    Logout
-                  </a>
-                </div>
-              </li>
-            </ul>
-          </nav>
-
-
-
-
-<div class="container-fluid">
-
-  <h5 class="mb-3 text-secondary ">Rail Discharge</h5>
-
-  <div class="card shadow-sm p-3">
-    <div class="row align-items-center">
-      <!-- Left side: Heading -->
-      <div class="col">
-        <h5 class="mb-0 text-primary">Updated Rail Discharge</h5>
-      </div>
-
-      <!-- Right side: Buttons -->
-      <div class="col-auto">
-        <div class="d-flex gap-2">
-          <button class="btn btn-outline-success" type="button">Update</button>
-          <button class="btn btn-outline-warning" type="button">Cancel</button>
-        </div>
-      </div>
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-success" onclick="addRow()">Add Wagon</button>
     </div>
   </div>
+</div> -->
 
-</div>
+                <!-- JS: Add/Delete Row -->
+                <script>
+                  let wagonCounter = 2;
+
+                  function addRow() {
+                    const tableBody = document.getElementById("wagonTableBody");
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+      <td>${wagonCounter}</td>
+      <td>WR12345${wagonCounter}</td>
+      <td>BOXN</td>
+      <td>22.0</td>
+      <td>68</td>
+      <td>83.0</td>
+      <td>22.0</td>
+      <td>61.0</td>
+      <td>0</td>
+      <td>61.0</td>
+      <td>0</td>
+      <td>55</td>
+      <td>CR</td>
+      <td>8</td>
+      <td>1022</td>
+      <td>60.0</td>
+      <td><button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button></td>
+    `;
+                    tableBody.appendChild(row);
+                    wagonCounter++;
+                  }
+
+                  function deleteRow(btn) {
+                    const row = btn.closest("tr");
+                    row.remove();
+                    // Recalculate Sl No
+                    const rows = document.querySelectorAll("#wagonTableBody tr");
+                    rows.forEach((r, index) => {
+                      r.children[0].textContent = index + 1;
+                    });
+                    wagonCounter = rows.length + 1;
+                  }
+                </script>
 
 
 
-            <div class="table-container">
-              <table class="table table-bordered border-primary">
-                <thead>
-                  <tr>
-                    <th>check</th>
-                    <th>Rake ID</th>
-                    <th>Rake Ref ID</th>
-                    <th>Dispatch Date</th>
-                    <th>FOIS Reference</th>
-                    <th>Current Status</th>
-                   
-                    <th>ETA at Port</th>
-   
-                    <th>Tracking</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><input type="checkbox" /> </td>
-                    <td>R-2025-001</td>
-                    <td>REF-001</td>
-                    <td>2025-07-16 08:30</td>
-                    <td>FOIS-789456</td>
-                    <td>
-                      <span class="status-badge status-enroute">En Route</span>
-                    </td>
-                    
-                    <td>2025-07-16 14:30</td>
-                   
-                    <td><button class="btn btn-secondary">Track</button></td>
-                  </tr>
-                  <tr>    <td><input type="checkbox" /> </td>
-                    <td>R-2025-002</td>
-                    <td>REF-002</td>
-                    <td>2025-07-16 06:15</td>
-                    <td>FOIS-789457</td>
-                    <td>
-                      <span class="status-badge status-arrived">Arrived</span>
-                    </td>
-                    <td>2025-07-16 12:15</td>
-                    
-                    <td><button class="btn btn-secondary">Track</button></td>
-                  </tr>
-                  <tr>    <td><input type="checkbox" /> </td>
-                    <td>R-2025-003</td>
-                    <td>REF-003</td>
-                    <td>2025-07-16 10:45</td>
-                    <td>FOIS-789458</td>
-                    <td>
-                      <span class="status-badge status-loading">Loading</span>
-                    </td>
-                    <td>2025-07-16 16:45</td>
-                    
-                    <td><button class="btn btn-secondary">Track</button></td>
-                  </tr>
-                </tbody>
-              </table>
+              </div>
+              <!-- Right side: Buttons -->
+
             </div>
           </div>
+
         </div>
-</div>
-                </div>
-            </div>
+
+
+
+        <div class="table-container ">
+          <table class="table table-bordered border-primary table-hover">
+            <thead>
+              <tr>
+                <th>Indent #</th>
+                <th>Rake Ref ID</th>
+                <th>Type of Wagon</th>
+                <th>Source Siding</th>
+                <th>Port Siding</th>
+                <th>No of Wagon </th>
+                <th>Destination</th>
+                <th>Current Status</th>
+                <th>Edit</th>
+                <th>Tracking</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>R-2025-001</td>
+                <td>REF-001</td>
+                <td>BOXN</td>
+                <td>Siding A</td>
+                <td>PPAQ</td>
+                <td>65</td>
+                <td>Delhi Yard</td>
+                <td><span class="status-badge status-enroute">En Route</span></td>
+                <td><button class="btn btn-secondary">Edit</button></td>
+                <td><button class="btn btn-secondary">Track</button></td>
+              </tr>
+              <tr>
+                <td>R-2025-002</td>
+                <td>REF-002</td>
+                <td>BCNHL</td>
+                <td>Siding B</td>
+                <td>PPAQ</td>
+                <td>66</td>
+                <td>Mumbai Port</td>
+                <td><span class="status-badge status-arrived">Arrived</span></td>
+                <td><button class="btn btn-secondary">Edit</button></td>
+                <td><button class="btn btn-secondary">Track</button></td>
+              </tr>
+              <tr>
+                <td>R-2025-003</td>
+                <td>REF-003</td>
+                <td>BTPN</td>
+                <td>Siding C</td>
+                <td>PPAQ</td>
+                <td>88</td>
+                <td>Kolkata Yard</td>
+                <td><span class="status-badge status-loading">Loading</span></td>
+                <td><button class="btn btn-secondary">Edit</button></td>
+                <td><button class="btn btn-secondary">Track</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
 
   </div>
-</div>
+  </div>
 
 
 
@@ -500,28 +925,28 @@
 
 
 
-            <!-- End of Main Content -->
+  <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Infyz Solution  2025</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>Copyright &copy; Infyz Solution 2025</span>
+      </div>
     </div>
-    <!-- End of Page Wrapper -->
+  </footer>
+  <!-- End of Footer -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+  </div>
+  <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
 
 
 
@@ -529,26 +954,24 @@
 
 
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
 </html>
-
-
-

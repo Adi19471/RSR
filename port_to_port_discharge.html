@@ -258,9 +258,9 @@
               <a class="collapse-item" href="port_to_plant_discharge.html"
                 >Rail Discharge</a
               >
-                  <a class="collapse-item" href="Conveyor_Operations.html"
+                  <!-- <a class="collapse-item" href="Conveyor_Operations.html"
           >Conveyor Operations</a
-        >
+        > -->
             </div>
           </div>
         </li>
@@ -417,41 +417,35 @@
     <div class="tab-content pt-4" id="portTabsContent">
       <!-- Load Port Tab -->
       <div class="tab-pane fade show active" id="loadPort" role="tabpanel">
-        <h4>Vessel Discharge  Plan</h4>
+        <h4>Vessel Discharge  </h4>
         <form class="row g-3">
           <div class="col-md-3">
             <label class="form-label">Vessel Name</label>
-            <input type="text" class="form-control" placeholder="Enter vessel name">
+            <input type="text" class="form-control" placeholder="	MV Ocean Star">
           </div>
           <div class="col-md-3">
             <label class="form-label">Voyage No.</label>
-            <input type="text" class="form-control" placeholder="Enter voyage number">
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Total Quantity (MT)</label>
-            <input type="number" class="form-control" placeholder="Enter quantity">
-          </div>
-          <div class="col-md-3">
-            <label class="form-label">Loading Sequence</label>
-            <input type="text" class="form-control" placeholder="Enter loading sequence">
+            <input type="text" class="form-control" placeholder="VOY-123">
           </div>
 
+              <div class="col-md-3">
+                <label class="form-label">Cargo</label>
+                <input type="text" class="form-control" placeholder="Coal">
+              </div>
+
+          
           <div class="col-md-3">
-            <label class="form-label">Draft Limitations</label>
-            <input type="text" class="form-control" placeholder="Enter draft limitations">
+            <label class="form-label">Total Discharge Quantity (MT)</label>
+            <input type="number" class="form-control" placeholder="190">
           </div>
-          <div class="col-md-3">
-            <label class="form-label">Ship Loader ID</label>
-            <select class="form-control">
-              <option>Loader-01</option>
-              <option>Loader-02</option>
-              <option>Loader-03</option>
-            </select>
-          </div>
+        
+
+         
+    
         </form>
 
         <div class="mt-3 text-end">
-          <button class="btn btn-success me-2">Save</button>
+          <button class="btn btn-success me-2">Update</button>
           <button class="btn btn-secondary">Clear</button>
         </div>
 
@@ -460,9 +454,9 @@
           <li class="nav-item">
             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#vesselMoments" type="button">Vessel Moments</button>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#stockpileDetails" type="button">Stockpile Details</button>
-          </li>
+          </li> -->
           <li class="nav-item">
             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vesselDocs" type="button">Documents</button>
           </li>
@@ -474,8 +468,8 @@
               <thead class="table-light">
                 <tr>
                   <th>Berthing Time</th>
-                  <th>Operations Commenced</th>
-                  <th>Operations Completed</th>
+                  <th>Discharge OPS Commenced </th>
+                  <th>Discharge OPS Completed</th>
                   <th>Sailing Time</th>
                   <th>Total Berthing Hrs</th>
                   <th>Action</th>
@@ -561,9 +555,9 @@
           <li class="nav-item">
             <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#dischargeVesselMoments" type="button">Vessel Moments</button>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dischargeStockpileDetails" type="button">Stockpile Details</button>
-          </li>
+          </li> -->
           <li class="nav-item">
             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#dischargeDocs" type="button">Documents</button>
           </li>
@@ -620,32 +614,46 @@
     </div>
   </div>
 
-  <!-- Live Tracking Card -->
-  <div class="card p-4 shadow-sm mt-4">
-    <h4>Live Tracking</h4>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Vessel Name</th>
-          <th>Voyage No.</th>
-          <th>ETA Discharge</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>MV Ocean Star</td>
-          <td>VOY-123</td>
-          <td>2025-07-18 14:30</td>
-        </tr>
-        <tr>
-          <td>MV Coal Express</td>
-          <td>VOY-124</td>
-          <td>2025-07-19 09:15</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="text-muted mt-2">[Live Vessel Tracking Map - Real-time positions with weather overlay]</div>
-  </div>
+<div class="card p-4 shadow-sm mt-4">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Check Box</th>
+        <th>Vessel Name</th>
+        <th>Vessel IMO No.</th>
+        <th>Voyage No.</th>
+        <th>Cargo</th>
+        <th>Total Discharge Quantity (MT)</th>
+        <th>Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="checkbox" class="" /></td>
+        <td>MV Ocean Star</td>
+        <td>IMO-9876543</td>
+        <td>VOY-123</td>
+        <td>Coal</td>
+        <td>190</td>
+
+        <td class="btn btn-info">Edit</td>
+
+
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="" /></td>
+        <td>MV Coal Express</td>
+        <td>IMO-8765432</td>
+        <td>VOY-124</td>
+        <td>Coal</td>
+        <td>180</td>
+        <td class="btn btn-info">Edit</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
 
  
 </div>
