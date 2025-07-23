@@ -413,3 +413,127 @@
 .accordion-icon {
   font-size: 18px;
 }
+
+
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .kpi-card {
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    padding: 1.2rem 1rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .kpi-card::before {
+    content: "";
+    width: 4px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .kpi-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kpi-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .kpi-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+
+  .kpi-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .kpi-value {
+    color: black;
+  }
+
+  /* Color variations */
+  .kpi-card.purple::before {
+    background-color: #36b9cc;
+  }
+
+  .kpi-card.purple .kpi-icon {
+    background-color: #36b9cc;
+  }
+
+  .kpi-card.yellow::before {
+    background-color: #f0ad4e;
+  }
+
+  .kpi-card.yellow .kpi-icon {
+    background-color: #f0ad4e;
+  }
+
+  .kpi-card.teal::before {
+    background-color: #20c997;
+  }
+
+  .kpi-card.teal .kpi-icon {
+    background-color: #20c997;
+  }
+
+  .kpi-card.pink::before {
+    background-color: #e83e8c;
+  }
+
+  .kpi-card.pink .kpi-icon {
+    background-color: #e83e8c;
+  }
+
+
+  .nav-item {
+  border-radius: 12px;
+  margin: 4px 0;
+  transition: background 0.2s ease;
+}
+.nav-item:hover, .nav-item.active {
+  background-color: #274bdb;
+  color: white;
+}
+.nav-link i {
+  margin-right: 10px;
+}
+.card-metric {
+  border-radius: 16px;
+  background: linear-gradient(145deg, #f2f2f2, #ffffff);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.card-metric:hover {
+  transform: scale(1.02);
+}
+.badge-status {
+  border-radius: 12px;
+  padding: 0.4rem 0.75rem;
+  font-weight: 500;
+}
+.badge-warning { background-color: #ffdd57; color: #333; }
+.badge-success { background-color: #4cd964; }
+.badge-info    { background-color: #5ac8fa; }

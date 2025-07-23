@@ -22,95 +22,8 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet" />
 </head>
 <style>
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
 
-  .kpi-card {
-    background: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    padding: 1.2rem 1rem;
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
-  .kpi-card::before {
-    content: "";
-    width: 4px;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 0.5rem 0 0 0.5rem;
-  }
-
-  .kpi-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .kpi-value {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-
-  .kpi-label {
-    color: #6c757d;
-    font-size: 0.9rem;
-  }
-
-  .kpi-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .kpi-value {
-    color: black;
-  }
-
-  /* Color variations */
-  .kpi-card.purple::before {
-    background-color: #36b9cc;
-  }
-
-  .kpi-card.purple .kpi-icon {
-    background-color: #36b9cc;
-  }
-
-  .kpi-card.yellow::before {
-    background-color: #f0ad4e;
-  }
-
-  .kpi-card.yellow .kpi-icon {
-    background-color: #f0ad4e;
-  }
-
-  .kpi-card.teal::before {
-    background-color: #20c997;
-  }
-
-  .kpi-card.teal .kpi-icon {
-    background-color: #20c997;
-  }
-
-  .kpi-card.pink::before {
-    background-color: #e83e8c;
-  }
-
-  .kpi-card.pink .kpi-icon {
-    background-color: #e83e8c;
-  }
 </style>
 
 <body id="page-top">
@@ -123,7 +36,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15"></div>
-        <div class="sidebar-brand-text mx-3 fa-2x">RSR</div>
+        <div class="sidebar-brand-text mx-3 fa-2x"><span class="text-warning">RSR</span></div>
       </a>
 
       <!-- Divider -->
@@ -140,78 +53,73 @@
 
 
       <!-- Heading -->
-      <div class="sidebar-heading">Mine To Port</div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+
+      <!-- Mine To Port Section -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-train fa-fw" style=" color: black; "></i>
-          <span> Mine To Port</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMineToPort"
+          aria-expanded="false" aria-controls="collapseMineToPort">
+          <i class="fas fa-train fa-fw" style="color: #040505;font-size: 17px;font-weight: bold;"></i>
+          <span style="color: #e1e1e6;font-size: 17px;font-weight: bold;;">Mine To Port</span>
+          <i class="fas fa-angle-down float-right mt-0"></i>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseMineToPort" class="collapse" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header"></h6>
-            <a class="collapse-item" href="MinetoportDahboard.html">Dashboard</a>
-            <a class="collapse-item" href="Minetoport_Create.html">Create</a>
-            <a class="collapse-item" href="Mine_to_port_load.html">Rail Load</a>
-            <a class="collapse-item" href="Mine_to_port_discharge.html">Rail Disacharge</a>
+            <h6 class="collapse-header text-dark">Mine to Port Options</h6>
+            <a class="collapse-item" href="MinetoportDahboard.html">📊 Dashboard</a>
+            <a class="collapse-item" href="Minetoport_Create.html">➕ Create</a>
+            <a class="collapse-item" href="Mine_to_port_load.html">🚂 Rail Load</a>
+            <a class="collapse-item" href="Mine_to_port_discharge.html">🛤️ Rail Discharge</a>
           </div>
         </div>
       </li>
 
       <!-- Divider -->
 
-
-      <!-- Heading -->
-      <div class="sidebar-heading">Port To Port</div>
-
+      <!-- Port To Port Section -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePortToPort"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePortToPort"
           aria-expanded="false" aria-controls="collapsePortToPort">
-          <i class="fas fa-fw fa-ship" style=" color: burlywood; "></i>
-          <span>Port To Port</span>
+          <i class="fas fa-ship fa-fw" style="color: #950c0c;font-size: 17px;font-weight: bold;"></i>
+          <span style="color: #e1e1e6;font-size: 17px;font-weight: bold;">Port To Port</span>
+          <i class="fas fa-angle-down float-right mt-0"></i>
         </a>
-        <div id="collapsePortToPort" class="collapse" aria-labelledby="headingPortToPort">
+        <div id="collapsePortToPort" class="collapse" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Port To Port</h6>
-
-            <a class="collapse-item" href="port_port_creation.html">Create</a>
-
-
-            <a class="collapse-item" href="port_port_Dashboard.html">Dashboard</a>
-            <a class="collapse-item" href="port_to_port_load.html">Vessel Load</a>
-            <a class="collapse-item" href="port_to_port_discharge.html">
-              Vessel Discharge</a>
+            <h6 class="collapse-header text-dark">Port to Port Options</h6>
+            <a class="collapse-item" href="port_port_Dashboard.html">📊 Dashboard</a>
+            <a class="collapse-item" href="port_port_creation.html">➕ Create</a>
+            <a class="collapse-item" href="port_to_port_load.html">⚓ Vessel Load</a>
+            <a class="collapse-item" href="port_to_port_discharge.html">🛳️ Vessel Discharge</a>
           </div>
         </div>
       </li>
 
       <!-- Divider -->
 
-
-      <!-- Heading -->
-      <div class="sidebar-heading">Port To Plant</div>
-
+      <!-- Port To Plant Section -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePortToPlant"
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePortToPlant"
           aria-expanded="false" aria-controls="collapsePortToPlant">
-          <i class="fas fa-fw fa-industry" style=" color: ivory; "></i>
-          <span>Port To Plant</span>
+          <i class="fas fa-industry fa-fw" style="color: #0c0c99;font-size: 17px;font-weight: bold;"></i>
+          <span style="color: #e1e1e6;font-size: 17px;font-weight: bold;">Port To Plant</span>
+          <i class="fas fa-angle-down float-right mt-0"></i>
         </a>
-        <div id="collapsePortToPlant" class="collapse" aria-labelledby="headingPortToPlant">
+        <div id="collapsePortToPlant" class="collapse" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Port To Plant</h6>
-            <a class="collapse-item" href="port_to_plant_Dashboard.html">Dashboard</a>
-            <a class="collapse-item" href="port_to_plant_Creation.html">Create</a>
-            <a class="collapse-item" href="port_to_plant_load.html">Rail Load</a>
-            <a class="collapse-item" href="port_to_plant_discharge.html">Rail Discharge</a>
-            <!-- <a class="collapse-item" href="Conveyor_Operations.html"
-                >Conveyor Operations</a
-              > -->
+            <h6 class="collapse-header text-dark">Port to Plant Options</h6>
+            <a class="collapse-item" href="port_to_plant_Dashboard.html">📊 Dashboard</a>
+            <a class="collapse-item" href="port_to_plant_Creation.html">➕ Create</a>
+            <a class="collapse-item" href="port_to_plant_load.html">🚂 Rail Load</a>
+            <a class="collapse-item" href="port_to_plant_discharge.html">🛤️ Rail Discharge</a>
+            <!-- Optional:
+          <a class="collapse-item" href="Conveyor_Operations.html">🛠️ Conveyor Operations</a> -->
           </div>
         </div>
       </li>
+
+
+
       <hr class="sidebar-divider d-none d-md-block">
       <a class="collapse-item" href="404.html"> Page Not Found</a>
 
@@ -425,6 +333,9 @@
           </ul>
 
         </nav>
+
+
+
         <div class="content">
           <!-- Dashboard Module -->
           <div id="dashboard">
@@ -648,7 +559,7 @@
 
 
 
-  <script>
+  <!-- <script>
 
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
@@ -675,7 +586,7 @@
     document.addEventListener("contextmenu", function (e) {
       e.preventDefault();
     });
-  </script>
+  </script> -->
 
 </body>
 
